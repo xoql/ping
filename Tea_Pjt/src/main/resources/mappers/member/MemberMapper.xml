@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+
+<!-- 다른 mapper와 중복되지 않도록 네임스페이스 기재 -->
+<mapper namespace="member">
+	<insert id="insert">
+		insert into tmember values(#{id}, #{password}, #{name}, #{tel}, #{email}, #{adress}, 0, sysdate, 0)
+	</insert>
+	<select id="login" resultType="com.javalec.tea_pjt.model.member.dto.MemberDTO">
+		select * from tmember where id=#{id} and password=#{password}
+	</select>
+	<select id="searchId" resultType="com.javalec.tea_pjt.model.member.dto.MemberDTO">
+		select * from tmember where id=#{id}
+	</select>
+	<select id="userInfo" resultType="com.javalec.tea_pjt.model.member.dto.MemberDTO">
+		select * from tmember where id=#{id}
+	</select>
+	<update id="updateUser">
+		update tmember set password=#{password}, tel=#{tel}, email=#{email}, adress=#{adress} where id = #{id}
+	</update>
+	<update id="deleteUser">
+		update tmember set user_flag=#{user_flag} where id=#{id}
+	</update>
+</mapper>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
